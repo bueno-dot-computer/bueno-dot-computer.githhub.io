@@ -24,7 +24,7 @@
   color: #ffffff;
   border-style: dashed;
   border-width: 5px;
-  border-color: #000000;
+  border-color: #ffffff;
 }
 
 .info {
@@ -34,9 +34,9 @@
   margin: .5em;
   background-color: #F58225;
   color: #ffffff;
-  border-style: solid;
+  border-style: dashed;
   border-width: .25em;
-  border-color: #000000;  
+  border-color: #ffffff;  
  }
  
 .select {
@@ -63,39 +63,42 @@ logo {
 </style>
   
   
-  <!-- Load Stripe.js on your website. -->
-<script src="https://js.stripe.com/v3"></script>
+
 
 
   
-  <script>
-    var stripe = Stripe('pk_test_zAOXIRkKeN9bLa9JZ61iGLyZ', {
-      betas: ['checkout_beta_4']
-    });
+  <!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+<script>
+  var stripe = Stripe('pk_live_J7FAocaPPXP6OCYbIalbgFxf', {
+    betas: ['checkout_beta_4']
+  });
 
-    var checkoutButton = document.getElementById('checkout-button');
-    checkoutButton.addEventListener('click', function () {
-      // When the customer clicks on the button, redirect
-      // them to Checkout.
-      stripe.redirectToCheckout({
-        items: [{sku: 'sku_ETxbhz26sfrUeC', quantity: 1}, {sku: 'sku_ETxXZGoX6gn9ST', quantity: 1}, {sku: 'sku_ETxSXjHRw64h7A', quantity: 1}],
+  var checkoutButton = document.getElementById('checkout-button');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_ETxSXjHRw64h7A', quantity: 1}],
 
-        // Note that it is not guaranteed your customers will be redirected to this
-        // URL *100%* of the time, it's possible that they could e.g. close the
-        // tab between form submission and the redirect.
-        successUrl: 'https://www.bueno.computer#success',
-        cancelUrl: 'https://www.bueno.computer#canceled',
-      })
-      .then(function (result) {
-        if (result.error) {
-          // If `redirectToCheckout` fails due to a browser or network
-          // error, display the localized error message to your customer.
-          var displayError = document.getElementById('error-message');
-          displayError.textContent = result.error.message;
-        }
-      });
+      // Note that it is not guaranteed your customers will be redirected to this
+      // URL *100%* of the time, it's possible that they could e.g. close the
+      // tab between form submission and the redirect.
+      successUrl: 'https://www.bueno.computer/success',
+      cancelUrl: 'https://www.bueno.computer/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
     });
-  </script>
+  });
+</script>
+  
+  
 </head>
 <body>
   <div id="content">                                                                                                      &nbsp;
@@ -134,11 +137,9 @@ logo {
           </div>  
         </form>
         
-        <!-- Load Stripe.js on your website. -->
-<script src="https://js.stripe.com/v3"></script>
 For Immediate Assistance
 <!-- Create a button that your customers click to complete their purchase. -->
-<button id="checkout-button" role="link">Start</button>
+<button id="checkout-button" role="link">Pay</button>
 <div id="error-message"></div>
 
           
