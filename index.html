@@ -89,76 +89,62 @@
           <a href="mailto:service@bueno.computer">service@bueno.computer</a>                        &nbsp;
       </div>                                                                                        &nbsp;
       <div class="wow">                                                   
-        <form>
-          <label>First, a category</label>
-           <div class="selecting">
-            <select name="I/We/They">                                     &nbsp;
-              <option>Computers</option>                                  &nbsp;
-              <option>Servers</option>                                    &nbsp;
-              <option>Networks</option>                                   &nbsp;
-              <option>Web</option>                                        &nbsp;
-              <option>Laptops</option>                                    &nbsp;
-              <option>Service...</option>                                 &nbsp;
-              <option>Work Stations</option>                              &nbsp;
-              <option>Networks</option>                                   &nbsp;
-              <option>Mobile Devices</options>                            &nbsp;
-              <option>Backups/Any Disaster Recovery Situation             &nbsp;
-              <option>Servers</option>                                    &nbsp;
-              <option>Software</option>                                   &nbsp;
-              <option>Specialty: You Tell Us!</option>                    &nbsp;
-             </select>                                                    &nbsp;
-          </div>  
-        </form>
+       
         
-For Immediate Assistance
-<!-- Create a button that your customers click to complete their purchase. -->
-<button id="checkout-button" role="link">Pay</button>
-<div id="error-message"></div>
+        For Immediate Assistance
+        <!-- Create a button that your customers click to complete their purchase. -->
+        <button id="checkout-button" role="link">Pay</button>
+        <div id="error-message"></div>
         
-<script>
-  var stripe = Stripe('pk_live_J7FAocaPPXP6OCYbIalbgFxf', {
-    betas: ['checkout_beta_4']
-  });
+        <script>
+          var stripe = Stripe('pk_live_J7FAocaPPXP6OCYbIalbgFxf', {
+            betas: ['checkout_beta_4']
+          });
 
-  var checkoutButton = document.getElementById('checkout-button');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      items: [{sku: 'sku_ETxSXjHRw64h7A', quantity: 1}],
+          var checkoutButton = document.getElementById('checkout-button');
+          checkoutButton.addEventListener('click', function () {
+            // When the customer clicks on the button, redirect
+            // them to Checkout.
+            stripe.redirectToCheckout({
+              items: [
+                      {sku: 'sku_ETxSXjHRw64h7A', quantity: 1},
+                      {sku: 'sku_ETxXZGoX6gn9ST', quantity: 1},
+                      {sku: 'sku_ETxbhz26sfrUeC', quantity: 1}
+                     ],
 
-      // Note that it is not guaranteed your customers will be redirected to this
-      // URL *100%* of the time, it's possible that they could e.g. close the
-      // tab between form submission and the redirect.
-      successUrl: 'https://www.bueno.computer/success',
-      cancelUrl: 'https://www.bueno.computer/canceled',
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-</script>
-
-          
-          
+              // Note that it is not guaranteed your customers will be redirected to this
+              // URL *100%* of the time, it's possible that they could e.g. close the
+              // tab between form submission and the redirect.
+              successUrl: 'https://www.bueno.computer#success',
+              cancelUrl: 'https://www.bueno.computer#cancel',
+            })
+            .then(function (result) {
+              if (result.error) {
+                // If `redirectToCheckout` fails due to a browser or network
+                // error, display the localized error message to your customer.
+                var displayError = document.getElementById('error-message');
+                displayError.textContent = result.error.message;
+              }
+            });
+          });
+        </script>
+        
         <ul>                                                                                                &nbsp;
           <li> When in need of assistance, you deserve assistance, Pronto! </li>                            &nbsp;
           <li> Your information needs kept simple, and secure!                                              &nbsp;
           <li> Do you NEED an I.T. Person in your Corner? <- DCS: Duh </li>                                 &nbsp;
         </ul>                                                                                               &nbsp;
-       </div>                                                                                              &nbsp;    
-      <div class="wow">                                                                       &nbsp;                             
-        Inspired by <br />                                                              &nbsp;
-        <a href="https://traction.eosworldwide.com/what-the-heck-is-eos">               &nbsp;
-          What the Heck is E.O.S.?                                                      &nbsp;
-        </a>                                                                            &nbsp;
-      </div>                                                                            &nbsp;
-    </div>                                                                                                       &nbsp;
+       
+        <form></form>
+        
+        </div>                                                                                             &nbsp;    
+        <div class="wow">                                                                                    &nbsp;                             
+          Inspired by the Entrepreneural Operating System<br />                                              &nbsp;
+          Check it out here: <a href="https://traction.eosworldwide.com/what-the-heck-is-eos">               &nbsp;
+           What the Heck is E.O.S.?                                                      &nbsp;
+          </a>                                                                            &nbsp;
+        </div>                                                                            &nbsp;
+     </div>                                                                                                       &nbsp;
    <div>                              &nbsp;
     <img src="logo.png" />            &nbsp;
     <img src="url.png" />             &nbsp;
