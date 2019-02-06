@@ -17,9 +17,9 @@
   
 .wow {
   width: 75%;
-  max-width: 300px;
-  margin: 1em;
-  padding: .5em;
+  max-width: 600px;
+  margin: .5em;
+  padding: .25em;
   background-color: #28CC70;
   color: #ffffff;
   border-style: dashed;
@@ -29,9 +29,9 @@
 
 .info {
   width: 75%;
-  max-width: 300px;
-  padding: .5em;
-  margin: 1em;
+  max-width: 600px;
+  padding: .25em;
+  margin: .5em;
   background-color: #F58225;
   color: #ffffff;
   border-style: solid;
@@ -47,7 +47,7 @@ a {
   color: #ffffff;  
 }
   
-info a {
+info.a {
     background-color: #28CC70;
 }
 
@@ -55,23 +55,60 @@ wow a {
   background-color: #F58225;
 }
   
-
+logo {
+  width: 50%;
+  max-width: 600px;  
+}
 
 </style>
+  
+  
+  <!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+
+  
+  <script>
+    var stripe = Stripe('pk_test_zAOXIRkKeN9bLa9JZ61iGLyZ', {
+      betas: ['checkout_beta_4']
+    });
+
+    var checkoutButton = document.getElementById('checkout-button');
+    checkoutButton.addEventListener('click', function () {
+      // When the customer clicks on the button, redirect
+      // them to Checkout.
+      stripe.redirectToCheckout({
+        items: [{sku: 'sku_ETxbhz26sfrUeC', quantity: 1}, {sku: 'sku_ETxXZGoX6gn9ST', quantity: 1}, {sku: 'sku_ETxSXjHRw64h7A', quantity: 1}],
+
+        // Note that it is not guaranteed your customers will be redirected to this
+        // URL *100%* of the time, it's possible that they could e.g. close the
+        // tab between form submission and the redirect.
+        successUrl: 'https://www.bueno.computer#success',
+        cancelUrl: 'https://www.bueno.computer#canceled',
+      })
+      .then(function (result) {
+        if (result.error) {
+          // If `redirectToCheckout` fails due to a browser or network
+          // error, display the localized error message to your customer.
+          var displayError = document.getElementById('error-message');
+          displayError.textContent = result.error.message;
+        }
+      });
+    });
+  </script>
 </head>
 <body>
   <div id="content">                                                                                                      &nbsp;
-    <div>                             
-      <img src="logo.png" />          
-    <div>                             
+                              
     
     <div class="text">                                                                                        &nbsp;
-      <div class="info">Welcome!</div>&nbsp;
+      <div class="info">Welcome!</div>     &nbsp;
+      <div><img src="logo.png" /></div>    &nbsp;  
       <div class="wow">                                                                             &nbsp;                                                                          &nbsp;
-        Not only is your computer powered, it connected to the World Wide Web.                      &nbsp;
+        Not only is your computer powered, it connected to the World Wide Web.<br />                &nbsp;
         If a printer did this, we are impressed!! <-ADS `no one gets that joke, David`              &nbsp;
       </div>                                                                                        &nbsp;
-                                                                                                    &nbsp;
+                                                                                                    
       <div class="info">                                                                            &nbsp;
           <a href="mailto:service@bueno.computer">service@bueno.computer</a>                        &nbsp;
       </div>                                                                                        &nbsp;
@@ -104,43 +141,11 @@ For Immediate Assistance
 <button id="checkout-button" role="link">Start</button>
 <div id="error-message"></div>
 
-<script>
-  var stripe = Stripe('pk_test_zAOXIRkKeN9bLa9JZ61iGLyZ', {
-    betas: ['checkout_beta_4']
-  });
-
-  var checkoutButton = document.getElementById('checkout-button');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      items: [{plan: 'ISM', quantity: 1}],
-
-      // Note that it is not guaranteed your customers will be redirected to this
-      // URL *100%* of the time, it's possible that they could e.g. close the
-      // tab between form submission and the redirect.
-      successUrl: 'https://www.bueno.computer/success',
-      cancelUrl: 'https://www.bueno.computer/canceled',
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-</script>
-
-Copy
-
-Done
           
           
         <ul>                                                                                                &nbsp;
           <li> When in need of assistance, you deserve assistance, Pronto! </li>                            &nbsp;
-          <li> We DO charge $155 / hr. (Discount for scheduled work!)                                       &nbsp;
+          <li> Your information needs kept simple, and secure!                                              &nbsp;
           <li> Do you NEED an I.T. Person in your Corner? <- DCS: Duh </li>                                 &nbsp;
         </ul>                                                                                               &nbsp;
        </div>                                                                                              &nbsp;    
