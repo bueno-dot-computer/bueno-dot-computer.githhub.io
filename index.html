@@ -16,7 +16,7 @@
   }
 
   .wow {
-    max-width: 800px;
+    max-width: 700px;
     margin: 1em;
     padding: .25em;
     background-color: #28CC70;
@@ -27,7 +27,7 @@
   }
 
   .info {
-    max-width: 800px;
+    max-width: 700px;
     padding: 1em;
     margin: 1em;
     background-color: #F58225;
@@ -54,15 +54,8 @@
   }
 </style>
   
-  
-
-
-
-  
   <!-- Load Stripe.js on your website. -->
 <script src="https://js.stripe.com/v3"></script>
-
-  
   
 </head>
 <body>
@@ -74,7 +67,7 @@
       <div class="info">Welcome! In case you weren't redirected, <a href="https://www.bueno.computer">use our HTTPS site</a></div>    &nbsp;
       <div class="wow">                                                                             &nbsp;                                                                          &nbsp;
         Not only is your computer powered, it connected to the World Wide Web.<br />                &nbsp;
-        If a printer did this, we are impressed!! <-ADS `no one gets that joke, David`              &nbsp;
+        If a printer did this, we are impressed!! <em><-ADS `no one gets that joke, David`</em>     &nbsp;
       </div>                                                                                        &nbsp;
                                                                                                     
       <div class="info">                                                                            &nbsp;
@@ -92,33 +85,37 @@
             </td>
           </tr>
           <tr>
+            <td colspan="3">
+              Tell us the P.A.C.E. of your problem:
+            </td>
+          <tr>
             <td>
-              <label>-Schedule Immediate</label><br />
+              <label>-Standard</label><br />
               <a><button id="good-checkout-button" role="link"><img src="4 HAPPY FACE.png" />Click to Start</button></a>
               <div id="error-message"></div>
             </td>
             <td>
-              We give great, on-demand service. Two hours and you'll be with an Agent.
+              I can live up to two weeks with this problem. Bless your heart; this is your P.A.C.E.
             </td>
           </tr>
           <tr>
             <td>
-              <label> No Rush Schedule Assistance</label><br />
+              <label>Priority Service</label><br />
               <button id="great-checkout-button" role="link"><img src="5 VERY HAPPY FACE.png" />Click to Start</button>
               <div id="error-message"></div>
             </td>
             <td>
-              Got a little time? That is great! We'll schedule you, promptly.
+              For on-site work, for work that takes long nights, or an unplanned weekend installation, THIS is your P.A.C.E.
             </td>
           </tr>
           <tr>
             <td>
-              <label> Schedule Immediate: Emergency </label><br />
+              <label>Emergency</label><br />
               <button id="terrible-checkout-button" role="link"><img src="1 VERY SAD FACE.png" />Click HERE FOR HELP!</button>
               <div id="error-message"></div>
             </td>
             <td>
-              Something is wrong and we don't have time to waste. Your issue comes next!
+              Something is wrong and we don't have time to waste!
             </td>
           </tr>
         </table>
